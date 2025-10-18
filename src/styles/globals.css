@@ -34,7 +34,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'VT323', monospace;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/background.png');
+  background-image: url('/images/background.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -57,17 +57,7 @@ body {
     box-shadow: 0 0 5px #FF073A;
 }
 
-/* Efeito de Fundo VHS (Simulação de Grão/Ruído) */
-/* Se for usar um GIF ou PNG como textura: */
-.vhs-bg {
-    background-color: #0a0a0a;
-    /* Exemplo: use uma imagem sutil de grão/scanlines */
-    background-image: url('/path-to-your-vhs-grain.png'); 
-    background-blend-mode: overlay;
-}
 
-/* Fonte (Se estiver usando uma fonte do Google Fonts, deve ser importada aqui) */
 .metal-mania-regular {
-    /* Exemplo: Substitua pela fonte de terror/slasher que você escolheu */
     font-family: 'Metal Mania', cursive;
 }

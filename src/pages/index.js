@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-// Assumindo que você também vai estilizar estes componentes:
-// AllMovies, WatchedMovies, NotWatchedMovies, MoviesByRating, AddMovie, EditMovie
 import AllMovies from "../components/AllMovies";
 import WatchedMovies from "../components/WatchedMovies";
 import NotWatchedMovies from "../components/NotWatchedMovies";
@@ -9,7 +7,6 @@ import MoviesByRating from "../components/MoviesByRating";
 import AddMovie from "../components/AddMovie";
 import EditMovie from "../components/EditMovie";
 
-// Componente Home reestilizado para o tema "Horror Retrô Anos 80"
 export default function Home() {
   const [currentView, setCurrentView] = useState("all"); // all, watched, notWatched, rating
   const [showAddModal, setShowAddModal] = useState(false);
@@ -47,8 +44,7 @@ export default function Home() {
   `;
 
   return (
-    // Fundo escuro com uma textura de VHS/Ruído. Adicione a classe 'vhs-bg' ao seu CSS global.
-    <div className="min-h-screen bg-black vhs-bg text-gray-300 p-8 border-4 border-red-900 shadow-inner shadow-red-900">
+    <div className="min-h-screen bg-black text-gray-300 p-8 border-4 border-red-900 shadow-inner shadow-red-900">
       
       {/* Título Principal */}
       <h1 className="text-8xl font-black text-center mb-12 uppercase metal-mania-regular 
