@@ -19,7 +19,7 @@ app.prepare().then(() => {
   connectDB();
 
   // =======================
-  // 🎬 API ROUTES
+  //  API ROUTES
   // =======================
 
   // GET /api/movies

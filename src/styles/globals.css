@@ -1,8 +1,25 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.metal-mania-regular {
+  font-family: "Metal Mania", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), /* White illumination */
+               0 0 15px rgba(255, 0, 0, 0.4), /* Red spot 1 */
+               0 0 25px rgba(255, 0, 0, 0.2); /* Red spot 2 */
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.metal-mania-regular:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1), /* Stronger white illumination */
+               0 0 25px rgba(0, 0, 0, 0.7), /* More prominent black spot 1 */
+               0 0 40px rgba(0, 0, 0, 0.5); /* More prominent black spot 2 */
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1a1d;
+  --foreground: #c5c6c7;
 }
 
 @theme inline {
@@ -12,15 +29,45 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'VT323', monospace;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Efeito Neon para o Título Principal */
+.text-neon-red {
+    color: #FF073A;
+    text-shadow: 0 0 7px #FF073A, 0 0 15px #FF073A, 0 0 25px #FF073A;
+}
+
+/* Efeito de Sombra Neon para os botões ativos/hover */
+.shadow-neon-red-active {
+    box-shadow: 0 0 5px #FF073A, 0 0 10px #FF073A, inset 0 0 3px #FF073A;
+}
+
+.hover-neon-effect:hover {
+    color: #FF073A; /* Muda o texto para neon no hover */
+    border-color: #FF073A !important;
+    box-shadow: 0 0 5px #FF073A;
+}
+
+/* Efeito de Fundo VHS (Simulação de Grão/Ruído) */
+/* Se for usar um GIF ou PNG como textura: */
+.vhs-bg {
+    background-color: #0a0a0a;
+    /* Exemplo: use uma imagem sutil de grão/scanlines */
+    background-image: url('/path-to-your-vhs-grain.png'); 
+    background-blend-mode: overlay;
+}
+
+/* Fonte (Se estiver usando uma fonte do Google Fonts, deve ser importada aqui) */
+.metal-mania-regular {
+    /* Exemplo: Substitua pela fonte de terror/slasher que você escolheu */
+    font-family: 'Metal Mania', cursive;
 }

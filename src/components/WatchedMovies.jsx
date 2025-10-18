@@ -28,27 +28,26 @@ export default function WatchedMovies() {
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold mb-4 text-center text-green-600">
-        🎬 Filmes já vistos
-      </h2>
+    <div className="p-4 max-w-4xl mx-auto">
+      <h2 className="text-2xl font-semibold mb-6 text-center text-white">Filmes já vistos</h2>
 
       {movies.length === 0 ? (
-        <p className="text-center text-gray-500">Nenhum filme marcado como visto ainda.</p>
+        <p className="text-center text-gray-400">Nenhum filme marcado como visto ainda.</p>
       ) : (
-        <ul className="space-y-3">
+        <ul className="space-y-4">
           {movies.map((movie) => (
             <li
               key={movie._id}
-              className="bg-white shadow-md rounded-lg p-3 flex justify-between items-center"
+              className="bg-gray-800 bg-opacity-50 backdrop-blur-sm shadow-lg rounded-lg p-4 flex justify-between items-center transition-all duration-300 hover:bg-gray-700"
             >
-              <div>
-                <h3 className="font-bold text-lg">{movie.title}</h3>
-                <p className="text-sm text-gray-600">
+              <div className="flex-grow">
+                <h3 className="font-bold text-xl text-white">{movie.title}</h3>
+                <p className="text-sm text-gray-400">
                   {movie.genre} • {movie.year}
                 </p>
-                <p className="text-sm">
-                  ⭐ {movie.rating}/10 — <span className="text-green-600">Visto ✅</span>
+                <p className="text-sm mt-1">
+                  <span className="font-semibold text-yellow-400">⭐ {movie.rating}</span>/10 —{" "}
+                  <span className="text-green-400">Visto</span>
                 </p>
               </div>
             </li>

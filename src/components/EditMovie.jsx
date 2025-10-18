@@ -58,73 +58,76 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
   if (!movie) return null; // Nada pra editar
 
   return (
-    <div className="bg-white shadow-lg rounded-xl p-6 max-w-md mx-auto mt-8">
-      <h2 className="text-xl font-semibold text-center mb-4 text-green-600">
-        ✏️ Editar Filme
-      </h2>
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+      <div className="bg-gray-800 shadow-lg rounded-xl p-8 max-w-md w-full mx-4">
+        <h2 className="text-2xl font-semibold text-center mb-6 text-white">
+          Editar Filme
+        </h2>
 
-      {error && <p className="text-red-500 text-center mb-3">{error}</p>}
+        {error && <p className="text-red-400 text-center mb-4">{error}</p>}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          name="title"
-          placeholder="Título"
-          value={form.title}
-          onChange={handleChange}
-          className="w-full border rounded-md p-2"
-        />
-        <input
-          name="year"
-          type="number"
-          placeholder="Ano"
-          value={form.year}
-          onChange={handleChange}
-          className="w-full border rounded-md p-2"
-        />
-        <input
-          name="genre"
-          placeholder="Gênero"
-          value={form.genre}
-          onChange={handleChange}
-          className="w-full border rounded-md p-2"
-        />
-        <input
-          name="rating"
-          type="number"
-          placeholder="Classificação (1–10)"
-          min="1"
-          max="10"
-          value={form.rating}
-          onChange={handleChange}
-          className="w-full border rounded-md p-2"
-        />
-        <label className="flex items-center space-x-2">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <input
-            type="checkbox"
-            name="watched"
-            checked={form.watched}
+            name="title"
+            placeholder="Título"
+            value={form.title}
             onChange={handleChange}
+            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
           />
-          <span>Já assistido?</span>
-        </label>
+          <input
+            name="year"
+            type="number"
+            placeholder="Ano"
+            value={form.year}
+            onChange={handleChange}
+            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <input
+            name="genre"
+            placeholder="Gênero"
+            value={form.genre}
+            onChange={handleChange}
+            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <input
+            name="rating"
+            type="number"
+            placeholder="Classificação (1–10)"
+            min="1"
+            max="10"
+            value={form.rating}
+            onChange={handleChange}
+            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <label className="flex items-center space-x-3 text-white">
+            <input
+              type="checkbox"
+              name="watched"
+              checked={form.watched}
+              onChange={handleChange}
+              className="h-5 w-5 rounded-sm bg-gray-600 border-gray-500 focus:ring-blue-500"
+            />
+            <span>Já assistido?</span>
+          </label>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
-        >
-          {loading ? "Atualizando..." : "Atualizar Filme"}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition-transform duration-200 transform hover:scale-105"
+          >
+            {loading ? "Atualizando..." : "Atualizar Filme"}
+          </button>
+        </form>
 
-      {onClose && (
-        <button
-          onClick={onClose}
-          className="mt-4 w-full text-gray-500 hover:text-gray-700 text-sm"
-        >
-          Cancelar
-        </button>
-      )}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="mt-5 w-full text-gray-400 hover:text-white text-sm transition"
+          >
+            Cancelar
+          </button>
+        )}
+      </div>
     </div>
   );
 }
