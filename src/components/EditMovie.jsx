@@ -57,10 +57,29 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
 
   if (!movie) return null; // Nada pra editar
 
+  const inputStyle =
+    "w-full bg-gray-900/80 border-2 border-cyan-700 text-cyan-300 rounded-md p-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 placeholder-cyan-600/70";
+  const checkboxStyle =
+    "h-5 w-5 rounded-sm bg-gray-700 border-cyan-600 text-cyan-400 focus:ring-2 focus:ring-offset-gray-900 focus:ring-cyan-500";
+  const buttonSubmitStyle = `
+    w-full px-6 py-3 uppercase tracking-widest font-bold
+    bg-red-700 text-white
+    shadow-lg border-2 border-red-500
+    hover:bg-red-600 hover:shadow-neon-red-hover
+    transition-all duration-200
+    disabled:bg-gray-600 disabled:shadow-none
+  `;
+  const buttonCancelStyle = `
+    mt-4 w-full py-2 text-sm uppercase tracking-wider
+    text-cyan-400 border border-cyan-700
+    hover:bg-gray-800 hover:text-white
+    transition-all duration-150
+  `;
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-      <div className="bg-gray-800 shadow-lg rounded-xl p-8 max-w-md w-full mx-4">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-white">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
+      <div className="bg-gray-900/70 border-2 border-red-900 shadow-2xl shadow-red-900/30 rounded-xl p-6 md:p-8 max-w-md w-full mx-4">
+        <h2 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase text-neon-red">
           Editar Filme
         </h2>
 
@@ -72,7 +91,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
             placeholder="Título"
             value={form.title}
             onChange={handleChange}
-            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+            className={inputStyle}
           />
           <input
             name="year"
@@ -80,14 +99,14 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
             placeholder="Ano"
             value={form.year}
             onChange={handleChange}
-            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+            className={inputStyle}
           />
           <input
             name="genre"
             placeholder="Gênero"
             value={form.genre}
             onChange={handleChange}
-            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+            className={inputStyle}
           />
           <input
             name="rating"
@@ -97,15 +116,15 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
             max="10"
             value={form.rating}
             onChange={handleChange}
-            className="w-full bg-gray-700 border-gray-600 text-white rounded-md p-3 focus:ring-2 focus:ring-blue-500 transition"
+            className={inputStyle}
           />
-          <label className="flex items-center space-x-3 text-white">
+          <label className="flex items-center space-x-4 text-cyan-300">
             <input
               type="checkbox"
               name="watched"
               checked={form.watched}
               onChange={handleChange}
-              className="h-5 w-5 rounded-sm bg-gray-600 border-gray-500 focus:ring-blue-500"
+              className={checkboxStyle}
             />
             <span>Já assistido?</span>
           </label>
@@ -113,7 +132,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition-transform duration-200 transform hover:scale-105"
+            className={buttonSubmitStyle}
           >
             {loading ? "Atualizando..." : "Atualizar Filme"}
           </button>
@@ -122,7 +141,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
         {onClose && (
           <button
             onClick={onClose}
-            className="mt-5 w-full text-gray-400 hover:text-white text-sm transition"
+            className={buttonCancelStyle}
           >
             Cancelar
           </button>

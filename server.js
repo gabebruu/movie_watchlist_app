@@ -1,15 +1,13 @@
 import express from "express";
 import next from "next";
-
 import Movie from "./models/Movie.js";
 import connectDB from "./lib/mongodb.js";
 
 
-
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-const handle = app.getRequestHandler();
-const PORT = process.env.PORT || 3001;
+const dev = process.env.NODE_ENV !== "production"; // Verifica se está em modo de desenvolvimento, ou seja, não produção
+const app = next({ dev }); // Inicializa o Next.js
+const handle = app.getRequestHandler(); // Manipulador de requisições do Next.js
+const PORT = process.env.PORT || 3001; // Porta do servidor
 
 app.prepare().then(() => {
   const server = express();
@@ -22,7 +20,7 @@ app.prepare().then(() => {
   //  API ROUTES
   // =======================
 
-  // GET /api/movies
+  // GET /api/movies - edpoint para buscar filmes
   server.get("/api/movies", async (req, res) => {
     try {
       const { watched, sortBy, order } = req.query;
@@ -45,7 +43,7 @@ app.prepare().then(() => {
     }
   });
 
-  // POST /api/movies
+  // POST /api/movies - edpoint para adicionar um novo filme
   server.post("/api/movies", async (req, res) => {
     try {
       const { title, year, genre, watched, rating } = req.body;
@@ -67,7 +65,7 @@ app.prepare().then(() => {
     }
   });
 
-  // PUT /api/movies/:id
+  // PUT /api/movies/:id - edpoint para atualizar um filme existente
   server.put("/api/movies/:id", async (req, res) => {
     try {
       const updated = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -79,7 +77,7 @@ app.prepare().then(() => {
     }
   });
 
-  // DELETE /api/movies/:id
+  // DELETE /api/movies/:id - edpoint para apagar um filme existente
   server.delete("/api/movies/:id", async (req, res) => {
     try {
       const deleted = await Movie.findByIdAndDelete(req.params.id);
@@ -94,7 +92,9 @@ app.prepare().then(() => {
   // =======================
   // NEXT HANDLER
   // =======================
-  server.all(/(.*)/, (req, res) => handle(req, res));
+  server.all(/(.*)/, (req, res) => handle(req, res)); // Lida com todas as outras rotas com Next.js
+
+  // Inicia o servidor
 
   server.listen(PORT, (err) => {
     if (err) throw err;

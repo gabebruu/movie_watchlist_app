@@ -1,28 +1,13 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
-.metal-mania-regular {
-  font-family: "Metal Mania", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), /* White illumination */
-               0 0 15px rgba(255, 0, 0, 0.4), /* Red spot 1 */
-               0 0 25px rgba(255, 0, 0, 0.2); /* Red spot 2 */
-  transition: text-shadow 0.3s ease-in-out;
-}
-
-.metal-mania-regular:hover {
-  text-shadow: 0 0 15px rgba(255, 255, 255, 1), /* Stronger white illumination */
-               0 0 25px rgba(0, 0, 0, 0.7), /* More prominent black spot 1 */
-               0 0 40px rgba(0, 0, 0, 0.5); /* More prominent black spot 2 */
-}
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
 
 :root {
   --background: #1a1a1d;
   --foreground: #c5c6c7;
 }
 
-@theme inline {
+@theme inline { 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -42,22 +27,40 @@ body {
 
 /* Efeito Neon para o Título Principal */
 .text-neon-red {
-    color: #FF073A;
-    text-shadow: 0 0 7px #FF073A, 0 0 15px #FF073A, 0 0 25px #FF073A;
+  color: #FF073A; /* Texto vermelho */
+  /* Sombra para criar o brilho neon azulado/esverdeado */
+  text-shadow: 0 0 5px #fff,      /* Hot core branco */
+               0 0 10px #00ffff,   /* Brilho ciano */
+               0 0 20px #00ffff;   /* Brilho ciano mais difuso */
 }
 
 /* Efeito de Sombra Neon para os botões ativos/hover */
 .shadow-neon-red-active {
-    box-shadow: 0 0 5px #FF073A, 0 0 10px #FF073A, inset 0 0 3px #FF073A;
+  box-shadow: 0 0 5px #FF073A, 0 0 10px #FF073A, inset 0 0 3px #FF073A;
 }
 
 .hover-neon-effect:hover {
-    color: #FF073A; /* Muda o texto para neon no hover */
-    border-color: #FF073A !important;
-    box-shadow: 0 0 5px #FF073A;
+  color: #FF073A;
+  /* Muda o texto para neon no hover */
+  border-color: #FF073A !important;
+  box-shadow: 0 0 5px #FF073A;
 }
 
 
 .metal-mania-regular {
-    font-family: 'Metal Mania', cursive;
+  font-family: 'Metal Mania', cursive;
+}
+
+.text-neon-white {
+  /* Cor base do texto como branco */
+  color: #FFFFFF;
+
+  /* Aplica a sombra para criar o efeito de brilho */
+  /* Múltiplas sombras com desfoque e transparência crescentes */
+  text-shadow: 0 0 7px #FFFFFF,
+    /* Brilho interno forte */
+    0 0 15px #00FFFF,
+    /* Brilho secundário ciano (dá profundidade) */
+    0 0 25px #00FFFF;
+  /* Brilho externo mais difuso */
 }

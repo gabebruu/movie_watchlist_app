@@ -1,8 +1,11 @@
+// a pasta models é para definir os esquemas e modelos de dados
+// o arquivo Movie.js define o modelo de dados para os filmes
+
 import mongoose from 'mongoose';
 
-const { Schema, model, models } = mongoose;
+const { Schema, model, models } = mongoose; // Desestruturação para facilitar o uso
 
-const movieSchema = new Schema({
+const movieSchema = new Schema({ // Define o esquema do filme, com campos e tipos, validações
   title: {
     type: String,
     required: true,

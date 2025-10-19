@@ -28,27 +28,29 @@ export default function Home() {
     `px-5 py-2 uppercase tracking-wider font-mono
      transition-all duration-150 ease-in-out
      ${currentView === view
-        ? "bg-red-800 text-yellow-300 border-2 border-red-500 shadow-neon-red-active" // Estado Ativo: Sangue e Destaque
-        : "bg-gray-900/70 text-cyan-400 border border-cyan-700 hover:bg-gray-800 hover-neon-effect" // Estado Padrão: Terminal de Computador
-      }
+      ? "bg-red-800 text-yellow-300 border-2 border-red-500 shadow-neon-red-active" // Estado Ativo: Sangue e Destaque
+      : "bg-gray-900/70 text-cyan-400 border border-cyan-700 hover:bg-gray-800 hover-neon-effect" // Estado Padrão: Terminal de Computador
+    }
      `;
-     
+
   const addButtonStyle = `
     px-6 py-2 uppercase tracking-widest font-bold
     bg-red-700 text-white
     shadow-lg border-2 border-red-500
     hover:bg-red-600 hover:shadow-neon-red-hover
     transition-all duration-200
-    // Adicionar um toque de agressividade, simulando um botão de "REC"
-    // ou uma fonte que parece gotejar (se usar uma fonte customizada)
   `;
 
+
   return (
-    <div className="min-h-screen bg-black text-gray-300 p-8 border-4 border-red-900 shadow-inner shadow-red-900">
-      
+    <div
+      className="min-h-screen text-gray-300 p-4 sm:p-6 md:p-8 border-4 border-red-900 shadow-inner shadow-red-900 
+                 bg-[url('/images/background.png')] bg-cover bg-center bg-fixed"
+    >
+
       {/* Título Principal */}
-      <h1 className="text-8xl font-black text-center mb-12 uppercase metal-mania-regular 
-                     text-neon-red border-b border-red-900 pb-4" // Use uma classe customizada para o efeito de neon
+      <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-center mb-8 md:mb-12 uppercase metal-mania-regular 
+                    text-neon-red border-b border-red-900 pb-4"
       >
         Your Movies Watchlist
       </h1>
@@ -86,16 +88,19 @@ export default function Home() {
           + Add New Movie
         </button>
       </div>
-
-      {/* 📄 Componentes de Conteúdo (Você precisará estilizar o card de filme aqui dentro!) */}
+      {/*  Componentes de Conteúdo */}
       <div key={reloadKey} className="mt-8">
-        <h2 className="text-3xl text-center mb-6 text-cyan-400 font-mono uppercase tracking-widest">
-          {currentView === "all" && "TODOS OS FILMES"}
-          {currentView === "watched" && "VISTOS - CLASSIFICADOS"}
-          {currentView === "notWatched" && "POR VER - A AGUARDAR"}
-          {currentView === "rating" && "TOP RATINGS - A MAIS ASSUSTADORA"}
-        </h2>
-        
+        <div key={reloadKey} className="mt-8">
+          <h2 className="text-2xl md:text-3xl text-center mb-6 uppercase tracking-widest text-neon-white">
+            {currentView === "all" && "ALL MOVIES"}
+            {currentView === "watched" && "WATCHED - RATED"}
+            {currentView === "notWatched" && "TO WATCH - PENDING "}
+            {currentView === "rating" && "TOP RATED - HIGHEST RATED"}
+          </h2>
+
+          {/* ... Renderização Condicional ... */}
+        </div>
+
         {/* Renderização Condicional */}
         {currentView === "all" && <AllMovies onEdit={setEditMovie} />}
         {currentView === "watched" && <WatchedMovies key={reloadKey} />}
