@@ -80,11 +80,11 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
-            name="title"
-            placeholder="Título"
-            value={form.title}
-            onChange={handleChange}
-            className={inputStyle}
+            name="title" // nome do campo
+            placeholder="Título" // o placeholder é o texto que aparece dentro do input
+            value={form.title} // o value é o valor atual do input, vindo do estado form
+            onChange={handleChange} // o onChange chama a função handleChange quando o valor do input muda
+            className={inputStyle} // estilo do input
           />
           <input
             name="year"
