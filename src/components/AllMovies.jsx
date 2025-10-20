@@ -1,8 +1,9 @@
+
 "use client";
 import { useEffect, useState } from "react";
-import { getAllMovies, deleteMovie } from "../services/api";
+import { getAllMovies } from "../services/api";
 
-export default function AllMovies({ onEdit }) {
+export default function AllMovies({ onEdit, onDeleteRequest }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -21,16 +22,6 @@ export default function AllMovies({ onEdit }) {
       console.error(err);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleDelete = async (id) => {
-    if (!confirm("Tem certeza que deseja apagar este filme? O CUSTO SERÁ ALTO.")) return; 
-    try {
-      await deleteMovie(id);
-      loadMovies(); // recarrega após apagar
-    } catch (err) {
-      console.error(err);
     }
   };
 
@@ -120,7 +111,7 @@ export default function AllMovies({ onEdit }) {
                   Editar
                 </button>
                 <button
-                  onClick={() => handleDelete(movie._id)}
+                  onClick={() => onDeleteRequest(movie)}
                   className="px-5 py-2 font-bold uppercase tracking-wider bg-red-900 text-white border-2 border-red-500 shadow-lg shadow-red-900 hover:bg-red-600 hover:shadow-neon-red-active transition-all duration-200"
                 >
                   Excluir
@@ -133,3 +124,4 @@ export default function AllMovies({ onEdit }) {
     </div>
   );
 }
+

@@ -21,10 +21,10 @@ app.prepare().then(() => {
   // =======================
 
   // GET /api/movies - edpoint para buscar filmes
-  server.get("/api/movies", async (req, res) => {
+  server.get("/api/movies", async (req, res) => { // req e res são os objetos de requisição e resposta do Express ou seja quando uma requisição GET é feita para /api/movies, essa função assíncrona é executada
     try {
-      const { watched, sortBy, order } = req.query;
-      const filter = {};
+      const { watched, sortBy, order } = req.query; // a req.query lê os parâmetros da query string da URL
+      const filter = {}; // o filter é um objeto vazio que será preenchido com critérios de filtro com base nos parâmetros da query string
 
       if (watched === "true") filter.watched = true;
       if (watched === "false") filter.watched = false;

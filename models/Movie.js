@@ -35,3 +35,8 @@ const movieSchema = new Schema({ // Define o esquema do filme, com campos e tipo
 });
 
 export default models.Movie || model('Movie', movieSchema); // Exporta o modelo Movie, reutilizando se já estiver definido para evitar redefinições
+
+// Aqui nesse arquivo define o modelo Movie para o MongoDB usando o Mongoose.
+// O schema especifica os campos que cada documento de filme terá, incluindo título, ano, gênero, status de assistido, avaliação e data de criação.
+// O modelo é então exportado para ser usado em outras partes da aplicação para interagir com a coleção de filmes no banco de dados.
+// Ele facilita a criação, leitura, atualização e exclusão de documentos de filmes no MongoDB.

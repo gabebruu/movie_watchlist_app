@@ -19,7 +19,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
     const { name, value, type, checked } = e.target;
     setForm({
       ...form,
-      [name]: type === "checkbox" ? checked : value, // se for checkbox, usa checked, senão value
+      [name]: type === "checkbox" ? checked : value, // se for checkbox, o checkbox serve para marcar ou desmarcar, então pega o valor checked, senão pega o value normal
     });
   };
 
