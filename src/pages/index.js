@@ -106,13 +106,6 @@ export default function Home() {
       {showAddModal && <AddMovie onClose={() => setShowAddModal(false)} onAdded={handleAdded} />}
       {editMovie && <EditMovie movie={editMovie} onClose={() => setEditMovie(null)} onUpdated={handleUpdated} />}
       {movieToDelete && <DeleteConfirmation onConfirm={handleConfirmDelete} onCancel={handleCancelDelete} />}
-
-
-      <footer className="text-center text-sm text-white- mt-12 mb-4">
-        <p>© 2025 Screams & Streams. All rights reserved.
-          This site may haunt your dreams and track your screams.
-          No slashers were harmed in the making of this experience. </p>
-      </footer>
     </div>
 
   );
