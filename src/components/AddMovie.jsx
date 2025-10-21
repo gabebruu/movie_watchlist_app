@@ -50,9 +50,9 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
     }
   };
   // Estilos//
-  const inputStyle =
+  const inputStyle = // estilo dos inputs do formulário
     "w-full bg-gray-900/80 border-2 border-cyan-700 text-cyan-300 rounded-md p-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 placeholder-cyan-600/70";
-  const checkboxStyle =
+  const checkboxStyle = //  o estilo do checkbox
     "h-5 w-5 rounded-sm bg-gray-700 border-cyan-600 text-cyan-400 focus:ring-2 focus:ring-offset-gray-900 focus:ring-cyan-500";
   const buttonSubmitStyle = `
     w-full px-6 py-3 uppercase tracking-widest font-bold
@@ -60,24 +60,23 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
     shadow-lg border-2 border-red-500
     hover:bg-red-600 hover:shadow-neon-red-hover
     transition-all duration-200
-    disabled:bg-gray-600 disabled:shadow-none
-  `;
+    disabled:bg-gray-600 disabled:shadow-none 
+  `; // estilo do botão de submit
   const buttonCancelStyle = `
     mt-4 w-full py-2 text-sm uppercase tracking-wider
     text-cyan-400 border border-cyan-700
     hover:bg-gray-800 hover:text-white
     transition-all duration-150
-  `;
+  `; // estilo do botão de cancelar
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
-      <div className="bg-gray-900/70 border-2 border-red-900 shadow-2xl shadow-red-900/30 rounded-xl p-6 md:p-8 max-w-md w-full mx-4">
-        <h2 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase text-neon-red">
-          Add New Movie
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50"> {/* fundo escuro com blur */}
+      <div className="bg-gray-900/70 border-2 border-red-900 shadow-2xl shadow-red-900/30 rounded-xl p-6 md:p-8 max-w-md w-full mx-4"> {/* container do modal */}
+        <h2 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase   text-neon-red">   
+          Add New Movie 
         </h2>
 
-        {error && <p className="text-red-400 text-center mb-4">{error}</p>}
-
+        {error && <p className="text-red-400 text-center mb-4">{error}</p>} {/* o error exibe mensagem de erro se houver */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             name="title" // nome do campo
