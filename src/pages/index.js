@@ -78,9 +78,9 @@ export default function Home() {
         Your Movies Watchlist
       </h1>
 
-      {/* Botões de navegação */}
+      {/* Botões de navegação*/}
       <div className="flex flex-wrap justify-center gap-4 mb-10 p-4 bg-gray-900/50 border border-cyan-800 shadow-xl shadow-cyan-900/20">
-        <button onClick={() => setCurrentView("all")} className={buttonStyle("all")}>All Movies</button>
+        <button onClick={() => setCurrentView("all")} className={buttonStyle("all")}>All Movies</button>   {/* o setCurrentView atualiza o estado, ou seja , a vista atual */}
         <button onClick={() => setCurrentView("watched")} className={buttonStyle("watched")}>Watched Movies</button>
         <button onClick={() => setCurrentView("notWatched")} className={buttonStyle("notWatched")}>Not Watched Movies</button>
         <button onClick={() => setCurrentView("rating")} className={buttonStyle("rating")}>Rating</button>

@@ -123,4 +123,5 @@ O `server.js` configura e executa o servidor Express que atende às requisiçõe
 - **`tailwind.config.mjs`**: Arquivo de configuração onde se pode estender o tema padrão do Tailwind, como cores, fontes e sombras. A aplicação define cores personalizadas como `neon-red` e `slasher-font` para criar uma identidade visual única.
 - **Classes Utilitárias:** Os componentes usam classes do Tailwind diretamente no `className` para aplicar estilos de forma rápida e consistente (ex: `bg-gray-900`, `text-cyan-400`, `font-bold`).
 - **Estilos Condicionais:** O `buttonStyle` em `index.js` é um ótimo exemplo de como aplicar estilos diferentes com base no estado da aplicação (`currentView`), criando um efeito visual claro para o botão ativo.
- // obs.
+
+ // FACIL NÃO É?

@@ -15,8 +15,8 @@ export const getWatchedMovies = async () => { // Busca filmes já assistidos
 };
 
 export const getNotWatchedMovies = async () => { // Busca filmes não assistidos
-  const res = await fetch(`${API_URL}?watched=false`);
-  if (!res.ok) throw new Error("ERROR: Failed to load movies to watch");
+  const res = await fetch(`${API_URL}?watched=false`); //o await fecth espera a resposta da API
+  if (!res.ok) throw new Error("ERROR: Failed to load movies to watch"); // se a resposta não for ok, lança um erro
   return res.json();
 };
 
@@ -37,7 +37,7 @@ export const addMovie = async (movieData) => { // Adiciona um novo filme
 };
 
 export const updateMovie = async (id, updatedData) => { // Atualiza um filme existente
-  const res = await fetch(`${API_URL}/${id}`, {
+  const res = await fetch(`${API_URL}/${id}`, { 
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updatedData),
