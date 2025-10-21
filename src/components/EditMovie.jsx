@@ -37,7 +37,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.title || !form.year || !form.genre || !form.rating) {
-      setError("Preencha todos os campos obrigatórios!");
+      setError("Please fill in all required fields!");
       return;
     }
     setError("");
@@ -49,7 +49,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
       if (onClose) onClose();     // Fecha modal
     } catch (err) {
       console.error(err);
-      setError("Erro ao atualizar filme 😢");
+      setError("Error updating movie😢");
     } finally {
       setLoading(false);
     }
@@ -80,7 +80,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
       <div className="bg-gray-900/70 border-2 border-red-900 shadow-2xl shadow-red-900/30 rounded-xl p-6 md:p-8 max-w-md w-full mx-4">
         <h2 className="text-2xl md:text-3xl font-black text-center mb-8 uppercase text-neon-red">
-          Editar Filme
+          Edit Movie
         </h2>
 
         {error && <p className="text-red-400 text-center mb-4">{error}</p>}
@@ -96,14 +96,14 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
           <input
             name="year"
             type="number"
-            placeholder="Ano"
+            placeholder="Year"
             value={form.year}
             onChange={handleChange}
             className={inputStyle}
           />
           <input
             name="genre"
-            placeholder="Gênero"
+            placeholder="Genre"
             value={form.genre}
             onChange={handleChange}
             className={inputStyle}
@@ -111,7 +111,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
           <input
             name="rating"
             type="number"
-            placeholder="Classificação (1–10)"
+            placeholder="Rating (1–10)"
             min="1"
             max="10"
             value={form.rating}
@@ -126,15 +126,15 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
               onChange={handleChange}
               className={checkboxStyle}
             />
-            <span>Já assistido?</span>
+            <span>Watched Movies</span>
           </label>
 
           <button
             type="submit"
             disabled={loading}
             className={buttonSubmitStyle}
-          >
-            {loading ? "Atualizando..." : "Atualizar Filme"}
+          >Confirm
+            {loading ? "Atualizando..." : ""}
           </button>
         </form>
 
@@ -143,7 +143,7 @@ export default function EditMovie({ movie, onClose, onUpdated }) {
             onClick={onClose}
             className={buttonCancelStyle}
           >
-            Cancelar
+            Cancel
           </button>
         )}
       </div>

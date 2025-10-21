@@ -18,7 +18,7 @@ export default function MoviesByRating() {
       setMovies(data);
     } catch (err) {
       console.error(err);
-      setError("ERRO: Falha ao carregar filmes por classificação 💀");
+      setError("ERROR: Failed to load movies by rating 💀");
     } finally {
       setLoading(false);
     }
@@ -40,20 +40,20 @@ export default function MoviesByRating() {
                   {movie.title}
                 </h3>
                 <p className="text-sm text-cyan-500 font-mono">
-                  GÊNERO: {movie.genre} • ANO: {movie.year}
+                  GENRE: {movie.genre} • YEAR: {movie.year}
                 </p>
                 <p className="text-base mt-2 font-bold tracking-wider">
                   <span className="text-yellow-400 text-shadow-glow">
-                    ⭐ CLASSIFICAÇÃO: {movie.rating}/10
+                    ⭐ RATING: {movie.rating}/10
                   </span>{" "}
                   —{" "}
                   {movie.watched ? (
                     <span className="text-green-400 border border-green-700 px-2 py-0.5 shadow-md shadow-green-900 uppercase">
-                      VISTO
+                      WATCHED
                     </span>
                   ) : (
                     <span className="bg-red-800 text-white px-2 py-0.5 uppercase animate-pulse border border-red-700 shadow-md shadow-red-900">
-                      POR VER
+                      NOT WATCHED
                     </span>
                   )}
                 </p>

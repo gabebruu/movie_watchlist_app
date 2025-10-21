@@ -18,7 +18,7 @@ export default function NotWatchedMovies() {
       setMovies(data);
     } catch (err) {
       console.error(err);
-      setError("ERRO: Falha ao carregar filmes por ver 💀");
+      setError("ERROR: Failed to load movies to watch 💀");
     } finally {
       setLoading(false);
     }
@@ -40,15 +40,15 @@ export default function NotWatchedMovies() {
                   {movie.title}
                 </h3>
                 <p className="text-sm text-cyan-500 font-mono">
-                  GÊNERO: {movie.genre} • ANO: {movie.year}
+                  GENRE: {movie.genre} • YEAR: {movie.year}
                 </p>
                 <p className="text-base mt-2 font-bold tracking-wider">
                   <span className="text-yellow-400 text-shadow-glow">
-                    ⭐ CLASSIFICAÇÃO: {movie.rating}/10
+                    ⭐ RATING: {movie.rating}/10
                   </span>{" "}
                   —{" "}
                   <span className="bg-red-800 text-white px-2 py-0.5 uppercase animate-pulse border border-red-700 shadow-md shadow-red-900">
-                    POR VER
+                    NOT WATCHED
                   </span>
                 </p>
               </div>

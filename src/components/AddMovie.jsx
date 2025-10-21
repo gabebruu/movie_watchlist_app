@@ -26,7 +26,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
   const handleSubmit = async (e) => { //async pq lida com operação assíncrona de adicionar filme, ou seja, espera a resposta da API
     e.preventDefault();
     if (!form.title || !form.year || !form.genre || !form.rating) {
-      setError("Preencha todos os campos obrigatórios!");
+      setError("Please fill in all required fields!");
       return;
     }
     setError("");
@@ -44,7 +44,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
       if (onClose) onClose(); // Fecha modal
     } catch (err) {
       console.error(err);
-      setError("Erro ao adicionar filme 😢");
+      setError("Error adding movie 😢");
     } finally {
       setLoading(false);
     }
@@ -81,7 +81,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             name="title" // nome do campo
-            placeholder="Título" // o placeholder é o texto que aparece dentro do input
+            placeholder="Title" // o placeholder é o texto que aparece dentro do input
             value={form.title} // o value é o valor atual do input, vindo do estado form
             onChange={handleChange} // o onChange chama a função handleChange quando o valor do input muda
             className={inputStyle} // estilo do input
@@ -89,14 +89,14 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
           <input
             name="year"
             type="number"
-            placeholder="Ano"
+            placeholder="Year"
             value={form.year}
             onChange={handleChange}
             className={inputStyle}
           />
           <input
             name="genre"
-            placeholder="Gênero"
+            placeholder="Genre"
             value={form.genre}
             onChange={handleChange}
             className={inputStyle}
@@ -104,7 +104,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
           <input
             name="rating"
             type="number"
-            placeholder="Classificação (1–10)"
+            placeholder="Rating (1–10)"
             min="1"
             max="10"
             value={form.rating}
@@ -119,7 +119,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
               onChange={handleChange} // Atualiza o estado
               className={checkboxStyle} //  Estilo do checkbox 
             />
-            <span>Já assistido?</span>
+            <span>Already watched?</span>
           </label>
 
           <button
@@ -127,7 +127,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
             disabled={loading}
             className={buttonSubmitStyle}
           >
-            {loading ? "Adicionando..." : "Adicionar Filme"}
+            {loading ? "Adicionando..." : "ADD MOVIE"}
           </button>
         </form>
 
@@ -136,7 +136,7 @@ export default function AddMovie({ onClose, onAdded }) { // componente funcional
             onClick={onClose}
             className={buttonCancelStyle}
           >
-            Cancelar
+            Cancel
           </button>
         )}
       </div>

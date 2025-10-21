@@ -61,7 +61,7 @@ app.prepare().then(() => {
       res.status(201).json(saved);
     } catch (err) {
       console.error(err);
-      res.status(400).json({ message: "Erro ao adicionar filme", error: err.message });
+      res.status(400).json({ message: "Error adding movie", error: err.message });
     }
   });
 
@@ -73,7 +73,7 @@ app.prepare().then(() => {
       res.status(200).json(updated);
     } catch (err) {
       console.error(err);
-      res.status(400).json({ message: "Erro ao atualizar filme", error: err.message });
+      res.status(400).json({ message: "Error updating movie", error: err.message });
     }
   });
 

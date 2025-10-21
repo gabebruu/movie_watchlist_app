@@ -70,21 +70,21 @@ export default function AllMovies({ onEdit, onDeleteRequest }) {
                 </h3>
                 
                 <p className="text-sm text-cyan-500 font-mono">
-                  GÊNERO: {movie.genre} • ANO: {movie.year}
+                  GENRE: {movie.genre} • YEAR: {movie.year}
                 </p>
                 
                 <p className="text-base mt-2 font-bold tracking-wider">
                   <span className="text-yellow-400 text-shadow-glow">
-                    ⭐ CLASSIFICAÇÃO: {movie.rating}/10
+                    ⭐ RATING: {movie.rating}/10
                   </span>{" "}
                   —{" "}
                   {movie.watched ? (
                     <span className="text-green-400 border border-green-700 px-2 py-0.5 shadow-md shadow-green-900 uppercase">
-                      VISTO
+                      WATCHED
                     </span>
                   ) : (
                     <span className="bg-red-800 text-white px-2 py-0.5 uppercase animate-pulse border border-red-700 shadow-md shadow-red-900">
-                      POR VER
+                      NOT WATCHED
                     </span>
                   )}
                 </p>
@@ -108,13 +108,13 @@ export default function AllMovies({ onEdit, onDeleteRequest }) {
                   onClick={() => onEdit(movie)}
                   className="px-5 py-2 font-bold uppercase tracking-wider bg-cyan-900/50 text-cyan-300 border border-cyan-500 shadow-md shadow-cyan-900 hover:bg-cyan-800 hover:text-white transition-all duration-200"
                 >
-                  Editar
+                  Edit
                 </button>
                 <button
                   onClick={() => onDeleteRequest(movie)}
                   className="px-5 py-2 font-bold uppercase tracking-wider bg-red-900 text-white border-2 border-red-500 shadow-lg shadow-red-900 hover:bg-red-600 hover:shadow-neon-red-active transition-all duration-200"
                 >
-                  Excluir
+                  Delete
                 </button>
               </div>
             </li>
